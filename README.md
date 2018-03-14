@@ -1,4 +1,4 @@
-# Scritp_Trello
+# Script_Trello
 
 Este script faz o monitoramento das seguintes informações do Trello:
   - Data em que determinada ação foi realizada
