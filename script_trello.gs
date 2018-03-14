@@ -77,12 +77,8 @@ var boardNames = ["ABA DO BOARD 1", "ABA DO BOARD 2"];
 
 //****************** Função main *************************
 function main() {
-  
-  // Cria a Planilha
-  //var ss = SpreadsheetApp.getActiveSheet().clear();
-  //ss.appendRow(["Data", "Quem", "Tag", "Ação", "Lista Origem", "Lista Destino", "Card","Label"]);
-  
-  // Loop para percorrer cada Quadro em busca das Ações
+   
+  // Loop para percorrer cada Board em busca das Ações
   for (var i = boards.length - 1; i >= 0; i--) {
     var boardID = boards[i];
     var boardName = boardNames[i];
@@ -90,11 +86,11 @@ function main() {
     Logger.log(boardID);
     
     
-    // Selecionar a planilha do respectivo Quadro
+    // Selecionar a planilha do respectivo Board
     var ss = SpreadsheetApp.getActiveSheet();
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(boardName);
     
-    // Puxa todas as ações relacionadas ao Quadro
+    // Puxa todas as ações relacionadas ao Board
     var response = UrlFetchApp.fetch(url + "boards/" + boardID + "/?actions=all&actions_limit=1000&" + key_and_token);
     var actions = JSON.parse(response.getContentText()).actions; 
 
